@@ -19,6 +19,7 @@ const slides = [
 
 let position = 0;
 const arrowLeft = document.querySelector(".arrow_left");
+const arrowRight = document.querySelector(".arrow_right");
 const bannerImg = document.querySelector("#banner .banner-img");
 const chemin = "./assets/images/slideshow/";
 const bannerText = document.querySelector("#banner p");
@@ -45,11 +46,10 @@ function slideLeft() {
 // Ecoute du clic sur la flèche gauche
 arrowLeft.addEventListener("click", slideLeft);
 
-const arrowRight = document.querySelector(".arrow_right");
 
 // Fonction qui change l'affichage de l'image au défilement sur la droite
 function slideRight() {
-  if (position < 3) {
+  if (position < slides.length - 1) {
     position++;
   } else {
     position = 0;
@@ -80,8 +80,8 @@ function showBulletPoints() {
 
 // Fonction pour mettre à jour la classe des bullet points
 function moveBulletPoints() {
-	for (let i = 0; i < dotElements.length; i++) {
-		dotElements[i].classList.remove('dot_selected');
-	}
-	dotElements[position].classList.add('dot_selected');
+  for (let i = 0; i < dotElements.length; i++) {
+    dotElements[i].classList.remove("dot_selected");
+  }
+  dotElements[position].classList.add("dot_selected");
 }
